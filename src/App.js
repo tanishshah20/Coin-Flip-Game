@@ -1,25 +1,18 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import WalletConnect from './components/WalletConnect';
+import CoinFlip from './components/CoinFlip';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [account, setAccount] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1>Coin Flip Game</h1>
+      <WalletConnect account={account} setAccount={setAccount} />
+      {account && <CoinFlip account={account} />}
     </div>
   );
-}
+};
 
 export default App;
